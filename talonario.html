@@ -681,7 +681,6 @@ td.oculta {
         <h2>Lista de Boletos</h2>
         <ul id="lista"></ul>
     </div>
-    <button id="limpiarTalonario" style="display: none;">clic para Nueva Rifa</button>
     <div id="modal" class="modal">
         <div class="modal-content">
             <span id="cerrarModal" class="cerrar">×</span>
@@ -714,22 +713,12 @@ td.oculta {
         <p id="mensajeNotificacion"></p>
     </div>
     <script>
+// 🔥 MODIFICACIÓN CLAVE: Verificación de sesión
+if (!localStorage.getItem("usuarioLogueado")) {
+    window.location.href = "index.html"; // Redirigir si no hay sesión
+}
+// Fin de la verificación de sesión
     
-document.addEventListener('DOMContentLoaded', () => {
-    // Verificar si el usuario está logueado
-    if (!localStorage.getItem("usuarioLogueado")) {
-        // Si no está logueado, redirigir a la página de inicio de sesión
-        window.location.href = "index.html";
-        return; // Detener la ejecución del resto del script
-    }
-    
-    // Si está logueado, continuar con la inicialización del talonario
-    console.log('Paso 0: DOM cargado, inicializando TalonarioDigital...');
-    // ... el resto de tu código de inicialización
-
-    
-    
-
 let filtroActivo = 'todo';
 
 document.addEventListener('DOMContentLoaded', () => {

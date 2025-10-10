@@ -1,97 +1,152 @@
 <!DOCTYPE html>
-<head><title></title>
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Talonario Digital - Login</title>
 <style>
-*{padding: 0;
-margin: 0;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
 
-}
+    body {
+        background: linear-gradient(135deg, #1e3c72, #2a5298);
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
 
-body{width:100%; height: 100%; background: #ffffff;}
-     
-.section01{margin: 2px;  height: 12px; width:80%; }
-.section01 img{ height: 12px; float: right;}
-     
+    .login-container {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+    }
 
-.container{ 
-height: 150px; width:100%;}
+    h1 {
+        margin-bottom: 20px;
+        font-size: 2em;
+    }
 
-#section1{
-width:44%; height: 150px; float: right; }
-#section1 img{border: 1px solid black; border-radius: 10px; padding: 5px; margin: 10px; }
+    input {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 8px;
+        font-size: 1em;
+    }
 
-#section2{
-width:55%; height: 100px;}
-#titulo{ padding: 15px; margin: 10px; text-align: center;}
+    input:focus {
+        outline: 2px solid #4CAF50;
+        background: rgba(255,255,255,0.9);
+    }
 
-#section3{
-width:55%; height: 49px; display: flex;}
+    button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 12px;
+        width: 100%;
+        border-radius: 8px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: 0.3s;
+    }
 
-#section4{ width:50%; height: 49px; margin: 10px; text-align: center;}
-#linea{ height: 49px; border:  1px solid black;}
-#section5{width:50%; height: 49px; float: right; margin: 10px; text-align: center;}
+    button:hover {
+        background-color: #45a049;
+    }
 
+    .error {
+        color: #ff6b6b;
+        margin-top: 10px;
+        font-weight: bold;
+    }
 
+    .info-text {
+        margin-top: 20px;
+        font-size: 0.95em;
+        color: #cde7ff;
+        line-height: 1.5;
+    }
 
-.nav{ width: 90%; height: 40px; margin: 10px; 10px; text-align: center;}
+    .whatsapp-link {
+        color: #25D366;
+        text-decoration: none;
+        font-weight: 600;
+    }
 
-.nav a{display: block; width: 80px; height: 18px; padding: 5px; background: #008000; border-radius: 10px; color: #ffffff;  text-decoration: none; float: right;}
+    .whatsapp-link:hover {
+        text-decoration: underline;
+    }
 
-
-.main{ border: 1px solid black;   width:100%;  max-height: 220px;  display: flex; overflow-x: auto;}
-#section6 img{ height: 200px; width: 130px;}
-#section6{border: 1px solid black; height: 200px; width: 130px; margin: 5px; border-radius: 10px;}
-
-.footer{ width:90%; height: 100%; margin: 10px; }
-p{padding: 10px; }
+    @media (max-width: 480px) {
+        h1 {
+            font-size: 1.6em;
+        }
+    }
 </style>
 </head>
 <body>
-<section class="section01">
-  <img style="border: 0px solid; display: inline;" alt="contador de visitas" src="https://websmultimedia.com/contador-de-visitas.php?id=6665">
- </section>
-     
-     
-     
-<div class="container">
-<section id="section1">
-     <img src="icono1.webp" width="110"  height="110">
-</section>
 
-<section id="section2"><center><h2 id="titulo">Surf n Go</h2></center>
-</section>
+<div class="login-container" id="loginContainer">
+    <h1>Iniciar Sesión</h1>
+    <input type="text" id="usuario" placeholder="Usuario">
+    <input type="password" id="contrasena" placeholder="Contraseña">
+    <button id="btnLogin">Ingresar</button>
+    <div class="error" id="errorMsg"></div>
 
-<section id="section3">
-<div id="section4">Versión<br>0.1
-</div>
-<div id="linea"></div>
-<div id="section5">Tamaño<br>14MB
-</div>
-</section>
+    <p class="info-text">
+        Para ingresar, solicita tu <b>usuario y contraseña</b> por 
+        <a class="whatsapp-link" href="https://wa.me/573155445183?text=Hola,%20quiero%20solicitar%20mi%20usuario%20y%20contraseña%20para%20acceder%20a%20Talonario%20Digital,%20o%20saber%20cuánto%20debo%20pagar%20para%20obtener%20acceso." target="_blank">
+            WhatsApp al +57 315 5445183
+        </a> 
+        o consulta cuánto debes pagar para obtener acceso.
+    </p>
 </div>
 
-<div class="nav"> 
-<a href="Surf n Go_.Developer-Shop.apk" download="Surf n Go<"><center>Descargar</center></a>
-</div>
+<script>
+    // Lista de usuarios válidos (puedes agregar más)
+    const usuarios = {
+        "orlando": "1234",
+        "cliente1": "abcd",
+        "cliente2": "xyz789",
+        "admin": "admin123"
+    };
 
-<div class="main">
+    const loginContainer = document.getElementById("loginContainer");
+    const errorMsg = document.getElementById("errorMsg");
+    const btnLogin = document.getElementById("btnLogin");
 
-<section id="section6">
-<img src="img5.webp" >
-</section>
-<section id="section6">
-<img src="img6.webp">
-</section>
-<section id="section6">
-<img src="img7.webp"  >
-</section>
+    // Si ya inició sesión antes, redirigir directamente
+    if (localStorage.getItem("usuarioLogueado")) {
+        window.location.href = "go:rifa";
+    }
 
-</div>
+    btnLogin.addEventListener("click", () => {
+        const usuario = document.getElementById("usuario").value.trim();
+        const contrasena = document.getElementById("contrasena").value.trim();
 
-<div class="footer">
-<p>
-<h4>Descripción:</h4><br>★¡Monta las olas hacia la victoria!.</p>
+        if (usuarios[usuario] && usuarios[usuario] === contrasena) {
+            // Guardar sesión
+            localStorage.setItem("usuarioLogueado", usuario);
+            window.location.href = "go:rifa";
+        } else {
+            errorMsg.textContent = "❌ Usuario o contraseña incorrectos";
+        }
+    });
+</script>
 
-</div>
 </body>
 </html>

@@ -1,3 +1,3 @@
-# mag
+# talonario digital 
 
-mag x2
+talonario digital 

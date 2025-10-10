@@ -131,7 +131,7 @@
 
     // Si ya inició sesión antes, redirigir directamente
     if (localStorage.getItem("usuarioLogueado")) {
-        window.location.href = "go:rifa";
+        window.location.href = "talonario.html";
     }
 
     btnLogin.addEventListener("click", () => {
@@ -141,7 +141,13 @@
         if (usuarios[usuario] && usuarios[usuario] === contrasena) {
             // Guardar sesión
             localStorage.setItem("usuarioLogueado", usuario);
-            window.location.href = "go:rifa";
+            
+            // 🔥 MODIFICACIÓN CLAVE: Reemplazar el estado actual en el historial
+            // Esto evita que el usuario pueda usar el botón "Atrás" para volver al login.
+            history.replaceState(null, document.title, location.href);
+            
+            // Redirigir a la página principal del talonario
+            window.location.href = "talonario.html";
         } else {
             errorMsg.textContent = "❌ Usuario o contraseña incorrectos";
         }

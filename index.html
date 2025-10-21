@@ -1,210 +1,238 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Talonario Digital - Login</title>
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-        background: linear-gradient(135deg, #1e3c72, #2a5298);
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
-    }
-
-    .login-container {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 20px;
-        padding: 40px;
-        width: 90%;
-        max-width: 400px;
-        text-align: center;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-    }
-
-    h1 {
-        margin-bottom: 20px;
-        font-size: 2em;
-    }
-
-    input {
-        width: 100%;
-        padding: 12px;
-        margin: 10px 0;
-        border: none;
-        border-radius: 8px;
-        font-size: 1em;
-    }
-
-    input:focus {
-        outline: 2px solid #4CAF50;
-        background: rgba(255,255,255,0.9);
-    }
-
-    button {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 12px;
-        width: 100%;
-        border-radius: 8px;
-        font-size: 1em;
-        cursor: pointer;
-        transition: 0.3s;
-    }
-
-    button:hover {
-        background-color: #45a049;
-    }
-
-    .error {
-        color: #ff6b6b;
-        margin-top: 10px;
-        font-weight: bold;
-    }
-
-    .info-text {
-        margin-top: 20px;
-        font-size: 0.95em;
-        color: #cde7ff;
-        line-height: 1.5;
-    }
-
-    .whatsapp-link {
-        color: #25D366;
-        text-decoration: none;
-        font-weight: 600;
-    }
-
-    .whatsapp-link:hover {
-        text-decoration: underline;
-    }
-
-    @media (max-width: 480px) {
-        h1 {
-            font-size: 1.6em;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Talonario Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" id="favicon" type="image/png" href="icono-talonariodigital.png">
+    <style>
+        /* Estilos Base */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0eafc, #cfdef3);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
         }
-    }
-</style>
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.15); /* Efecto glassmorphism base */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.8);
+            box-sizing: border-box;
+            font-size: 1em;
+            color: #34495e;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Estilo para el botón de Ingresar (Pago) */
+        #btnLogin {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        #btnLogin:hover {
+            background-color: #27ae60;
+        }
+
+        /* 🔥 NUEVO ESTILO: Botón de Demostración */
+        #btnDemo {
+            background-color: #3498db; 
+            color: white;
+            margin-top: 10px; 
+        }
+
+        #btnDemo:hover {
+            background-color: #2980b9;
+        }
+        /* FIN NUEVO ESTILO */
+
+        .error {
+            color: #e74c3c;
+            margin-top: 15px;
+            font-weight: 600;
+            display: none;
+        }
+
+        .whatsapp-link {
+            color: #2c3e50;
+            margin-top: 20px;
+            display: block;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .whatsapp-link:hover {
+            color: #2ecc71;
+        }
+    </style>
 </head>
 <body>
+    <div class="login-container">
+        <h1>Talonario Digital</h1>
+        <input type="text" id="usuario" placeholder="Usuario">
+        <input type="password" id="contrasena" placeholder="Contraseña">
+        
+        <button id="btnLogin">Ingresar</button>
+        
+        <button id="btnDemo">Acceso de Demostración</button>
+        
+        <div class="error" id="errorMsg">Usuario o contraseña incorrectos.</div>
+    </div>
+    
+    <a class="whatsapp-link" href="https://wa.me/573155445183?text=Hola,%20quiero%20solicitar%20mi%20usuario%20y%20contraseña%20para%20acceder%20a%20Talonario%20Digital,%20o%20saber%20cuánto%20debo%20pagar%20para%20obtener%20acceso." target="_blank">
+        WhatsApp al +57 315 5445183
+    </a>
 
-<div class="login-container" id="loginContainer">
-    <h1>Iniciar Sesión</h1>
-    <input type="text" id="usuario" placeholder="Usuario">
-    <input type="password" id="contrasena" placeholder="Contraseña">
-    <button id="btnLogin">Ingresar</button>
-    <div class="error" id="errorMsg"></div>
+    <script>
+        // Usuarios y contraseñas (SOLO para cuentas de pago)
+        const usuarios = {
+            "orlando": "1234",
+            "admin": "admin123",
+            // ... (Lista completa de usuarios, asumo que mantienes tu lista original)
+            "juanperez": "7642",
+            "paola": "3546",
+            "mariagomez": "9815",
+            "carlosrojas": "2370",
+            "lauravargas": "1954",
+            "pedromartinez": "5038",
+            "anaruiz": "8291",
+            "javierlopez": "3467",
+            "sofiadiaz": "6129",
+            "danielaferrer": "4703",
+            "ricardosoto": "0596",
+            "gabrielasilva": "9102",
+            "miguelalvarez": "7385",
+            "valeriaramos": "2047",
+            "fer_castro": "5511",
+            "cami_guzman": "8824",
+            "emiliovega": "3099",
+            "isabelmora": "6750",
+            "ale_pardo": "1436",
+            "felipeleon": "4901",
+            "patricia_ortiz": "0278",
+            "hectorduran": "9683",
+            "karenblanco": "7019",
+            "sergio_cruz": "2544",
+            "andreagil": "5862",
+            "rodolfopena": "8377",
+            "natalia_solis": "3905",
+            "eduardotorres": "6410",
+            "luciarivera": "1193",
+            "albertoguerra": "4625",
+            "ximenamendez": "0857",
+            "diegojimenez": "9340",
+            "paulinaromero": "7712",
+            "max_aguirre": "2968",
+            "victoriacano": "5204",
+            "manuel_luna": "8076",
+            "claragonzales": "3531",
+            "sebastianbravo": "6899",
+            "elena_sanchez": "1700",
+            "ramiro_paz": "4023",
+            "veronica_nieto": "0388",
+            "tomas_herrera": "9954",
+            "beatriz_nuñez": "7136",
+            "ignacio_ruiz": "2809",
+            "martha_soto": "5371",
+            "raul_acosta": "8648",
+            "lorenadiaz": "3113",
+            "benjaminsilva": "6579",
+            "marina_flores": "1284",
+            "oscar_vidales": "4490",
+            "estefania_rojas": "0735"
+        };
 
-    <p class="info-text">
-        Para ingresar, solicita tu <b>usuario y contraseña</b> por 
-        <a class="whatsapp-link" href="https://wa.me/573155445183?text=Hola,%20quiero%20solicitar%20mi%20usuario%20y%20contraseña%20para%20acceder%20a%20Talonario%20Digital,%20o%20saber%20cuánto%20debo%20pagar%20para%20obtener%20acceso." target="_blank">
-            WhatsApp al +57 315 5445183
-        </a> 
-        o consulta cuánto debes pagar para obtener acceso.
-    </p>
-</div>
+        const usuarioInput = document.getElementById("usuario");
+        const contrasenaInput = document.getElementById("contrasena");
+        const btnLogin = document.getElementById("btnLogin");
+        const errorMsg = document.getElementById("errorMsg");
+        
+        // 🔥 NUEVA VARIABLE: Botón de Demostración
+        const btnDemo = document.getElementById("btnDemo"); 
 
-<script>
-    // Lista de usuarios válidos (52 usuarios en total)
-    const usuarios = {
-        // Usuarios fijos
-        "orlando": "1234",
-        "admin": "admin123",
-
-        // 50 Usuarios personalizados con contraseña aleatoria de 4 dígitos
-        "juanperez": "7642",
-        "paola": "3546",
-        "mariagomez": "9815",
-        "carlosrojas": "2370",
-        "lauravargas": "1954",
-        "pedromartinez": "5038",
-        "anaruiz": "8291",
-        "javierlopez": "3467",
-        "sofiadiaz": "6129",
-        "danielaferrer": "4703",
-        "ricardosoto": "0596",
-        "gabrielasilva": "9102",
-        "miguelalvarez": "7385",
-        "valeriaramos": "2047",
-        "fer_castro": "5511",
-        "cami_guzman": "8824",
-        "emiliovega": "3099",
-        "isabelmora": "6750",
-        "ale_pardo": "1436",
-        "felipeleon": "4901",
-        "patricia_ortiz": "0278",
-        "hectorduran": "9683",
-        "karenblanco": "7019",
-        "sergio_cruz": "2544",
-        "andreagil": "5862",
-        "rodolfopena": "8377",
-        "natalia_solis": "3905",
-        "eduardotorres": "6410",
-        "luciarivera": "1193",
-        "albertoguerra": "4625",
-        "ximenamendez": "0857",
-        "diegojimenez": "9340",
-        "paulinaromero": "7712",
-        "max_aguirre": "2968",
-        "victoriacano": "5204",
-        "manuel_luna": "8076",
-        "claragonzales": "3531",
-        "sebastianbravo": "6899",
-        "elena_sanchez": "1700",
-        "ramiro_paz": "4023",
-        "veronica_nieto": "0388",
-        "tomas_herrera": "9954",
-        "beatriz_nuñez": "7136",
-        "ignacio_ruiz": "2809",
-        "martha_soto": "5371",
-        "raul_acosta": "8648",
-        "lorenadiaz": "3113",
-        "benjaminsilva": "6579",
-        "marina_flores": "1284",
-        "oscar_vidales": "4490",
-        "estefania_rojas": "0735"
-    };
-
-    const loginContainer = document.getElementById("loginContainer");
-    const errorMsg = document.getElementById("errorMsg");
-    const btnLogin = document.getElementById("btnLogin");
-
-    // Si ya inició sesión antes, redirigir directamente
-    if (localStorage.getItem("usuarioLogueado")) {
-        window.location.href = "talonario.html";
-    }
-
-    btnLogin.addEventListener("click", () => {
-        const usuario = document.getElementById("usuario").value.trim();
-        const contrasena = document.getElementById("contrasena").value.trim();
-
-        if (usuarios[usuario] && usuarios[usuario] === contrasena) {
-            // Guardar sesión
-            localStorage.setItem("usuarioLogueado", usuario);
-            
-            // 🔥 MODIFICACIÓN CLAVE: Reemplazar el estado actual en el historial
-            // Esto evita que el usuario pueda usar el botón "Atrás" para volver al login.
-            history.replaceState(null, document.title, location.href);
-            
-            // Redirigir a la página principal del talonario
+        // 1. Verificar si ya hay una sesión activa
+        if (localStorage.getItem("usuarioLogueado")) {
+            // Si ya hay sesión, ir directamente al talonario
             window.location.href = "talonario.html";
-        } else {
-            errorMsg.textContent = "❌ Usuario o contraseña incorrectos";
         }
-    });
-</script>
 
+        // 2. Función de LOGIN NORMAL (Pago)
+        btnLogin.addEventListener("click", () => {
+            const usuario = usuarioInput.value.toLowerCase();
+            const contrasena = contrasenaInput.value;
+
+            if (usuarios[usuario] && usuarios[usuario] === contrasena) {
+                // Login exitoso: Guardar el nombre de usuario
+                localStorage.setItem("usuarioLogueado", usuario);
+                
+                // Redirigir y reemplazar el historial para evitar volver atrás fácilmente
+                history.replaceState(null, document.title, location.href);
+                window.location.href = "talonario.html";
+            } else {
+                // Login fallido
+                errorMsg.style.display = "block";
+                setTimeout(() => {
+                    errorMsg.style.display = "none";
+                }, 3000);
+            }
+        });
+        
+        // 3. 🔥 FUNCIÓN DE ACCESO DEMOSTRACIÓN 🔥
+        btnDemo.addEventListener("click", () => {
+            // Se usa "demo_user" para distinguirlo de los usuarios de pago
+            localStorage.setItem("usuarioLogueado", "demo_user"); 
+            
+            // Si quieres que los datos demo se borren al recargar la página:
+            // localStorage.removeItem('numerosSeleccionados');
+            // localStorage.removeItem('numerosPagados');
+            // localStorage.setItem('datosBoletos', JSON.stringify({}));
+
+            // Redirigir
+            history.replaceState(null, document.title, location.href);
+            window.location.href = "talonario.html";
+        });
+        // FIN FUNCIÓN DEMOSTRACIÓN
+
+    </script>
 </body>
 </html>
